@@ -1,0 +1,26 @@
+jQuery(window).bind("load", function() {
+  setTimeout(function(){  
+		if (jQuery('.no_bg').length) {
+			jQuery('.no_bg').each(function(i){ 
+				
+				jQuery(this).delay(500).removeClass("no_bg");
+
+				var bg_Image = jQuery(this).delay(500).css('background-image');
+			  	var res = bg_Image.slice(5, bg_Image.length-2);
+
+		        console.log(i+"    "+bg_Image);
+				
+				if( res !== "" && res !== "none") {
+
+					jQuery(this).css('background-image','none');
+					
+					var url = new URL(res);
+					jQuery(this).css('background-image', 'url(https://i0.wp.com/www.namamiinc.com/' + url.pathname + ')');
+				}
+
+
+		        
+		    });
+		}
+  }, 2000);
+    });
